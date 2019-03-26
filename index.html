@@ -14,7 +14,7 @@
         <button v-on:click="add">新增此事項</button>
         
         <ul>
-            <li v-for="item in items">{{item}}</li>
+            <li v-for="item in items" v-bind:contenteditable="edit" v-on:click="write">{{item}}</li>
         </ul>
         <button v-on:click="cut">delete</button>
     </div>
@@ -29,6 +29,7 @@
                 'banana',
                 'watermelon',
                 ],
+                edit:"false",
             },
             methods:{
                 add (){
@@ -41,6 +42,10 @@
                 cut(){
                     this.items.pop();
                 },
+                write(){
+                    this.edit = "true";
+                }
+      
             },
         })
     </script>
